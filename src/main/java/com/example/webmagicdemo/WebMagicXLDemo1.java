@@ -16,9 +16,9 @@ public class WebMagicXLDemo1 implements PageProcessor {
     // 部分一：抓取网站的相关配置，包括编码、抓取间隔、重试次数等
     private Site site = Site.me().setRetryTimes(3).setSleepTime(1000);
 
-    Map aMap = new HashMap();
-
-    boolean aaa = true;
+//    Map aMap = new HashMap();
+//
+//    boolean aaa = true;
 
     // 这里通过page.addTargetRequests()方法来增加要抓取的URL
     // 这里抽取支持链式调用。调用结束后，toString()表示转化为单个String，all()则转化为一个String列表。
@@ -56,8 +56,8 @@ public class WebMagicXLDemo1 implements PageProcessor {
 //            aMap.put(titlelist.get(i), readlist.get(i));
         }
 
-        System.out.println("获取返回结果：===================================================");
-        System.out.println(new Gson().toJson(aMap));
+//        System.out.println("获取返回结果：===================================================");
+//        System.out.println(new Gson().toJson(aMap));
     }
 
 
@@ -68,12 +68,11 @@ public class WebMagicXLDemo1 implements PageProcessor {
 
 
     public static void main(String[] args) {
-        Spider.create(new WebMagicXLDemo())
+        Spider.create(new WebMagicXLDemo1())
                 .addUrl("https://www.6456ri.com/vod/html3/32948.html")
                 .run();
         System.out.print("当前是第1页");
     }
-
 
 
 
