@@ -53,18 +53,13 @@ public class WebMagicXLDemo implements PageProcessor {
         return site;
     }
 
-//    public static void main(String[] args)throws Exception {
-//        Spider.create(new WebMagicXLDemo())
-//                .addUrl("https://www.6456ri.com/vod/html2/")
-//                .run();
-//        System.out.print("当前是第1页");
-//    }
-
-
-    public static void main(String[] args) {
-        Map map = pareMap();
-        System.out.println(map);
+    public static void main(String[] args)throws Exception {
+        Spider.create(new WebMagicXLDemo())
+                .addUrl("https://www.6456ri.com/vod/html26/")
+                .run();
+        System.out.print("当前是第1页");
     }
+
 
 
 
