@@ -1,18 +1,16 @@
-package com.example.webmagicdemo;
+package com.example.webmagicdemo.xl;
 
 import com.google.gson.Gson;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
-import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.processor.PageProcessor;
-import us.codecraft.webmagic.selector.JsonPathSelector;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class WebMagicXLDemo2 implements PageProcessor {
+public class WebMagicXLDemo1 implements PageProcessor {
 
     // 部分一：抓取网站的相关配置，包括编码、抓取间隔、重试次数等
     private Site site = Site.me().setRetryTimes(3).setSleepTime(1000);
@@ -43,10 +41,8 @@ public class WebMagicXLDemo2 implements PageProcessor {
 
 
         //相同元素的结果加到相应的集合中去。
-        List<String> titlelist = page.getHtml().xpath("//h3[@style='color: #333;margin:0px; text-align: center;margin-bottom: 15px;']/text()").all();
-        List<String> hrefList= page.getHtml().xpath("//a[@style='text-decoration:none']/@href").all();
-
-//        page.putField("url", new JsonPathSelector("$.thunder_url").select(page.getRawText()));
+        List<String> titlelist = page.getHtml().xpath("//h2[@style='margin-top:0px;']/text()").all();
+        List<String> hrefList = page.getHtml().xpath("//a[@title='下载地址1']/@href").all();
 
         if (titlelist.size()==0){
             page.setSkip(true);
@@ -58,7 +54,6 @@ public class WebMagicXLDemo2 implements PageProcessor {
 
         System.out.println("获取返回结果：===================================================");
         System.out.println(new Gson().toJson(aMap));
-        System.out.println(new Gson().toJson(aMap.values()));
     }
 
 
@@ -68,17 +63,17 @@ public class WebMagicXLDemo2 implements PageProcessor {
     }
 
 
-    public static void main(String[] args) {
-        Spider.create(new WebMagicXLDemo2())
-                .addUrl("https://www.6456ri.com/vod/html27/32829_down_0.html")
-                .run();
-        System.out.print("当前是第1页");
-    }
-//
 //    public static void main(String[] args) {
-//        HashMap hashMap = pareMap();
-//        System.out.println(hashMap);
+//        Spider.create(new WebMagicXLDemo1())
+//                .addUrl("https://www.6456ri.com/vod/html3/32948.html")
+//                .run();
+//        System.out.print("当前是第1页");
 //    }
+
+    public static void main(String[] args) {
+        HashMap hashMap = pareMap();
+        System.out.println(hashMap);
+    }
 
 
 

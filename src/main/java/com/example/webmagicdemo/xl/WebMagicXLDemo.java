@@ -1,10 +1,8 @@
-package com.example.webmagicdemo;
+package com.example.webmagicdemo.xl;
 
 import com.google.gson.Gson;
-import org.springframework.boot.json.GsonJsonParser;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
-import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.processor.PageProcessor;
 
 import java.util.HashMap;
